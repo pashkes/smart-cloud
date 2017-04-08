@@ -527,7 +527,6 @@ $button-trans-delay: 0.3s;
   padding-top: 57px;
 
 }
-
 .features__inner {
   @include container;
   padding-top: 44px;
@@ -547,7 +546,11 @@ $button-trans-delay: 0.3s;
   justify-content: space-between;
   align-items: center;
 }
-
+.features__img {
+  &--last {
+    margin-bottom: 20px;
+  }
+}
 .features__detal,
 .features__groups {
   flex: 1;
@@ -843,6 +846,7 @@ $button-trans-delay: 0.3s;
 .benefits__percents {
   position: relative;
   height: 495px;
+  animation-play-state: running;
 }
 
 @keyframes down {
@@ -925,6 +929,7 @@ $button-trans-delay: 0.3s;
   }
   100% {
     transform: translateY(0) scale(1.13);
+    z-index: 2;
   }
 }
 
@@ -938,10 +943,10 @@ $button-trans-delay: 0.3s;
   }
   66.6666% {
     transform: translateY(-160px) scale(1.13);
+    z-index: 5;
   }
   100% {
     transform: translateY(0px);
-    z-index: 5;
   }
 }
 
@@ -1776,6 +1781,9 @@ $button-trans-delay: 0.3s;
   }
   .footer__menu-link {
     padding: 9px 21px;
+  }
+  .benefits__percent {
+    animation-play-state: paused !important;
   }
 }
 
