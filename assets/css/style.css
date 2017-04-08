@@ -1253,7 +1253,9 @@ img {
 
 .benefits__percents {
   position: relative;
-  height: 495px; }
+  height: 495px;
+  -webkit-animation-play-state: running;
+          animation-play-state: running; }
 
 @-webkit-keyframes down {
   0% {
@@ -2239,7 +2241,10 @@ img {
   .features__btn{
     margin-bottom: 20px; }
   .footer__menu-link{
-    padding: 9px 21px; } }
+    padding: 9px 21px; }
+  .benefits__percent{
+    -webkit-animation-play-state: paused !important;
+    animation-play-state: paused !important; } }
 
 @media (max-width: 768px){
   .header__logo{
