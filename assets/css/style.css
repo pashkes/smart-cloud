@@ -1355,7 +1355,8 @@ img {
             transform: translateY(-130px); }
   100% {
     -webkit-transform: translateY(0) scale(1.13);
-            transform: translateY(0) scale(1.13); } }
+            transform: translateY(0) scale(1.13);
+    z-index: 2; } }
 
 @keyframes c2 {
   0% {
@@ -1371,7 +1372,8 @@ img {
             transform: translateY(-130px); }
   100% {
     -webkit-transform: translateY(0) scale(1.13);
-            transform: translateY(0) scale(1.13); } }
+            transform: translateY(0) scale(1.13);
+    z-index: 2; } }
 
 @-webkit-keyframes c3 {
   0% {
