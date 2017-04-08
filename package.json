@@ -1,0 +1,40 @@
+{
+  "name": "smartcloud.local",
+  "version": "1.0.0",
+  "description": "SmartCloud",
+  "main": "gulpfile.js",
+  "scripts": {
+    "build": "gulp build"
+  },
+  "author": "Pavel Tarasenko",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "6.3.6",
+    "browser-sync": "^2.18.5",
+    "css-mqpacker": "^5.0.1",
+    "del": "^2.2.1",
+    "editorconfig-tools": "0.1.1",
+    "gulp": "^3.9.1",
+    "gulp-csso": "^2.0.0",
+    "gulp-gh-pages": "^0.5.4",
+    "gulp-imagemin": "^3.0.1",
+    "gulp-jsmin": "^0.1.5",
+    "gulp-plumber": "1.1.0",
+    "gulp-postcss": "6.1.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-rigger": "^0.5.8",
+    "gulp-sass": "2.3.1",
+    "gulp-svgmin": "^1.2.2",
+    "gulp-svgstore": "^6.0.0",
+    "i": "^0.3.5",
+    "npm": "^4.1.1",
+    "run-sequence": "^1.2.2",
+    "svgmin": "^0.1.0"
+  },
+  "engines": {
+    "node": "5.11"
+  },
+  "dependencies": {
+    "psi": "^2.0.4"
+  }
+}
