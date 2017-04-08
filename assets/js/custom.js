@@ -78,8 +78,7 @@ var slider = $('.slider');
           menu.toggleClass('fadeInDownt');
         });
 
-        //Stiky header
-        var header = $('.header__top');
+        //Sticky header
         if (header.length) {
           $(window).on('scroll', function () {
             if ($(this).scrollTop() > 1) {
@@ -156,9 +155,10 @@ function animateNumberAndProgress() {
 }
 
 //Interval start and stop animation circle
+var circle = $('.benefits__percent');
 if ($('.benefits').length) {
   setInterval(function () {
-    $('.benefits__percent').toggleClass('paused');
+    circle.toggleClass('paused');
   }, 4000);
 }
 animateNumberAndProgress();
