@@ -153,14 +153,6 @@ function animateNumberAndProgress() {
 
   }
 }
-
-//Interval start and stop animation circle
-var circle = $('.benefits__percent');
-if ($('.benefits').length) {
-  setInterval(function () {
-    circle.toggleClass('paused');
-  }, 4000);
-}
 animateNumberAndProgress();
 
 //Start animation circle in viewport
