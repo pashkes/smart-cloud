@@ -163,7 +163,7 @@ if ($('.benefits').length) {
     }, 2000);
     setInterval(function () {
         $('.benefits__percent').removeClass('paused');
-    }, 4000);
+    }, 8000);
 }
 animateNumberAndProgress();
 
