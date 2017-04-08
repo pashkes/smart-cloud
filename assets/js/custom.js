@@ -10,7 +10,6 @@ var slider = $('.slider');
 
 (function ($) {
   $(document).ready(function () {
-
         //slider page initialization
         function initializeSlider() {
           if (slider.length) {
@@ -18,8 +17,9 @@ var slider = $('.slider');
               vertical: true,
               verticalSwiping: true,
               accessibility: true,
-              centerPadding: '0',
-              centerMode: false,
+              centerPadding: '0px',
+              infinite: false,
+              centerMode: true,
               dots: true,
               arrows: false,
               useTransform: false,
