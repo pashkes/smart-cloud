@@ -157,14 +157,14 @@ function animateNumberAndProgress() {
 }
 
 //Interval start and stop animation circle
-// if ($('.benefits').length) {
-//     setInterval(function () {
-//         $('.benefits__percent').addClass('paused');
-//     }, 2000);
-//     setInterval(function () {
-//         $('.benefits__percent').removeClass('paused');
-//     }, 4000);
-// }
+if ($('.benefits').length) {
+    setInterval(function () {
+        $('.benefits__percent').addClass('paused');
+    }, 2000);
+    setInterval(function () {
+        $('.benefits__percent').removeClass('paused');
+    }, 4000);
+}
 animateNumberAndProgress();
 
 //Start animation circle in viewport
