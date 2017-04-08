@@ -952,6 +952,9 @@ img {
       -ms-flex-align: center;
           align-items: center; }
 
+.features__img--last {
+  margin-bottom: 20px; }
+
 .features__detal,
 .features__groups {
   -webkit-box-flex: 1;
