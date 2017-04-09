@@ -5,12 +5,29 @@ var slider = $('.slider');
 /**
  * Document ready functions
  */
+$.fn.isOnScreen = function () {
+
+  //Window Object
+  var win = $(window);
+  //Object to Check
+  var obj = $(this);
+  //the top Scroll Position in the page
+  var scrollPosition = win.scrollTop();
+  //the end of the visible area in the page, starting from the scroll position
+  var visibleArea = win.scrollTop() + win.height();
+  //the end of the object to check
+  var objEndPos = (obj.offset().top + obj.outerHeight());
+  return (visibleArea >= objEndPos && scrollPosition <= objEndPos ? true : false)
+};
 
 //
+$(window).on('scroll', function () {
+  if (slider.isOnScreen()) {
 
+  }
+});
 (function ($) {
   $(document).ready(function () {
-
         //slider page initialization
         function initializeSlider() {
           if (slider.length) {
@@ -18,12 +35,13 @@ var slider = $('.slider');
               vertical: true,
               verticalSwiping: true,
               accessibility: true,
-              centerPadding: '0',
-              centerMode: false,
+              centerPadding: '0px',
+              infinite: true,
+              centerMode: true,
               dots: true,
               arrows: false,
               useTransform: false,
-              speed: 500,
+              adaptiveHeight: true,
               responsive: [
                 {
                   breakpoint: 1024,
@@ -89,14 +107,12 @@ var slider = $('.slider');
             }
           });
         }
-
-
       }
   );
 })(jQuery);
 
 
-//Slick resize
+// Slick resize
 $(window).resize(function () {
   slider.slick('resize');
 });
@@ -153,29 +169,54 @@ function animateNumberAndProgress() {
 
   }
 }
-
-//Interval start and stop animation circle
-var circle = $('.benefits__percent');
-if ($('.benefits').length) {
-  setInterval(function () {
-    circle.toggleClass('paused');
-  }, 4000);
-}
 animateNumberAndProgress();
 
-//Start animation circle in viewport
-$(document).on('scroll resize ready', function () {
-  if ($('.benefits').length) {
-    var el = $('.benefits__percents'),
-        bodyScroll = $('body').scrollTop(),
-        wh = $(window).outerHeight(),
-        elHeight = el.outerHeight(),
-        elHeightHalf = elHeight / 4,
-        pos = el.offset().top - wh + elHeightHalf;
+var isMobile = navigator.userAgent.match(/Mobile/i) == "Mobile";
 
-    if (bodyScroll >= pos) {
+
+//Start animation in viewport
+(function ($) {
+
+  $(window).on('scroll load resize ready', function () {
+    var animateElements = [
+          $('.intro__subject'),
+          $('.intro__subtitle'),
+          $('.intro__btn-visible'),
+          $('.banner'),
+          $('.features__title'),
+          $('.subscribe__title'),
+          $('.subscribe__subtitle'),
+          $('.subscribe__item '),
+          $('.platforms__icon'),
+          $('.platforms__title'),
+          $('.platforms__text')
+        ],
+        visibleClass = "show-element";
+
+    $.each(animateElements, function (key, selector) {
+      if (selector.length && !selector.hasClass(visibleClass)) {
+        if (selector.isOnScreen() || isMobile) {
+          selector.addClass(visibleClass);
+        }
+      }
+    });
+
+  });
+})(jQuery);
+
+
+//Start animation circle in viewport
+$(document).on('load scroll resize ready', function () {
+  if ($('.benefits').length) {
+    var circle = $('.benefits__percents'),
+        circleHeight = circle.outerHeight(),
+        bodyScrollTop = $('body').scrollTop(),
+        elHeightHalfCircle = circleHeight / 4,
+        whWindow = $(window).outerHeight(),
+        posCircle = circle.offset().top - whWindow + elHeightHalfCircle;
+    if (bodyScrollTop >= posCircle) {
       animateNumberAndProgress();
-      el.addClass('js-animate-circle');
+      circle.addClass('js-animate-circle');
       $(document).off('scroll resize ready');
     }
   }

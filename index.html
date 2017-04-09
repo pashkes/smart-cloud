@@ -5,7 +5,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="assets/css/style.css" type="text/css">
 	<link id="favicon" rel="shortcut icon" href="assets/img/favicon2x.ico" type="image/x-icon">
-	<link rel="icon" href="assets/img/favicon2x.png type="image/png">
 	<link rel="apple-touch-icon" sizes="144x144" href="assets/img/icon_ios144.png">
 	<link rel="apple-touch-icon" sizes="114x114" href="assets/img/icon_ios114.png">
 	<title>Smart Cloud</title>
@@ -41,10 +40,8 @@
 				<span class="intro__subtitle">Bring the Power of Salesforce<span>&#174;</span> into Your Inbox, Calendar and Chats</span>
 			</div>
 			<div class="intro__buttons">
-				<button class="intro__button btn btn--big-opacity-main  btn--open-popap" type="button">Get free 15-day
-					trial
-				</button>
-				<button class="intro__button btn  btn--big-opacity btn--open-popap" type="button">Request a demo</button>
+				<div class="intro__btn-visible"><button class="intro__button btn btn--big-opacity-main  btn--open-popap" type="button">Get free 15-day trial</button></div>
+				<div class="intro__btn-visible"><button class="intro__button btn  btn--big-opacity btn--open-popap" type="button">Request a demo</button></div>
 			</div>
 		</div>
 	</div>
@@ -57,8 +54,7 @@
 		</div>
 	</div>
 	<span class="videoOverlay"></span>
-	<video poster="assets/img/bg-video.png"
-	       class="bgVideo" id="bgvid" playsinline="" autoplay="" muted="" loop="">
+	<video poster="assets/img/bg-video.png" class="bgVideo" id="bgvid" playsinline="" autoplay="" muted="" loop="">
 		<source src="assets/img/home.webm" type="video/webm">
 		<source src="assets/img/home.mp4" type="video/mp4">
 		<source src="assets/img/home.ogv" type="video/ogv">
@@ -66,7 +62,7 @@
 </header>
 <div class="features ">
 	<h2 class="features__title">Why SmartCloud Connect for Salesforce®?</h2>
-	<div class="slider ">
+	<div class="slider autoplay">
 		<div class="slide  slide--shadow">
 			<div class="features__inner">
 				<div class="features__item">
@@ -378,7 +374,7 @@
 			<span class="benefits__bg-line"></span>
 			<span class="benefits__bg-line"></span>
 			<span class="benefits__bg-line"></span>
-			<div class="benefits__percent circle" data-value="0.25">
+			<div class="benefits__percent benefits__percent--first circle" data-value="0.25">
 				<div class="dial success">25</div>
 				<div class="benefits__percent-inner">
 					<div class="benefits__percent-text">
@@ -387,7 +383,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="benefits__percent circle" data-value="0.18">
+			<div class="benefits__percent benefits__percent--second circle" data-value="0.18">
 				<div class="dial success">18</div>
 				<div class="benefits__percent-inner">
 					<div class="benefits__percent-text">
@@ -396,7 +392,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="benefits__percent circle" data-value="0.24">
+			<div class="benefits__percent benefits__percent--third circle" data-value="0.24">
 				<div class="dial success">24</div>
 				<div class="benefits__percent-inner">
 					<div class="benefits__percent-text">
@@ -523,6 +519,7 @@
 </div>
 
 <script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/plugins/jquery.viewport.min.js"></script>
 <script src="assets/js/plugins/slick.min.js"></script>
 <script src="assets/js/plugins/jquery.animateNumber.min.js"></script>
 <script src="assets/js/plugins/circle-progress.min.js"></script>
