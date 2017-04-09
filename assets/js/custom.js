@@ -1,7 +1,5 @@
 'use strict';
 
-var slider = $('.slider');
-
 /**
  * Document ready functions
  */
@@ -21,6 +19,8 @@ $.fn.isOnScreen = function () {
 };
 
 (function ($) {
+  var slider = $('.slider');
+
   $(document).ready(function () {
         //slider page initialization
         function initializeSlider() {
@@ -36,6 +36,8 @@ $.fn.isOnScreen = function () {
               arrows: false,
               useTransform: false,
               adaptiveHeight: true,
+              autoplay: false,
+              autoplaySpeed: 3000,
               responsive: [
                 {
                   breakpoint: 1024,
@@ -44,6 +46,17 @@ $.fn.isOnScreen = function () {
               ]
             });
           }
+          //
+          $(document).on('scroll load ready resize',function () {
+            var el = $('.slider'),
+                bodyScroll = $('body').scrollTop(),
+                wh = $(window).outerHeight(),
+                pos = el.offset().top - wh;
+
+            if (bodyScroll >= pos){
+              slider.slick('slickPlay');
+            }
+          });
 
           //toggle key up slider
           slider.keyup(function (e) {
@@ -104,7 +117,6 @@ $.fn.isOnScreen = function () {
       }
   );
 })(jQuery);
-
 
 // Slick resize
 $(window).resize(function () {
