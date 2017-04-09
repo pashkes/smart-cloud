@@ -47,16 +47,24 @@ $.fn.isOnScreen = function () {
             });
           }
           //
-          $(document).on('scroll load ready resize',function () {
-            var el = $('.slider'),
-                bodyScroll = $('body').scrollTop(),
-                wh = $(window).outerHeight(),
-                pos = el.offset().top - wh;
+          var windowHeight = $(window).height();
+          var sliderOffsetTop = slider.offset().top;
+          var sliderHeight = slider.height() / 2;
+          var played = false;
 
-            if (bodyScroll >= pos){
-              slider.slick('slickPlay');
+          $(document).scroll(function() {
+            if ($('body').scrollTop() > sliderOffsetTop - sliderHeight - windowHeight  && $('body').scrollTop() < sliderOffsetTop + sliderHeight) {
+              if (!played) {
+                slider.slick('slickPlay');
+                played = true
+              }
+            } else {
+              slider.slick('slickPause');
+              played = false
             }
+
           });
+
 
           //toggle key up slider
           slider.keyup(function (e) {
