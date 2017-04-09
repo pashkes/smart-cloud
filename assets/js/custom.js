@@ -5,8 +5,8 @@ var slider = $('.slider');
 /**
  * Document ready functions
  */
-$.fn.isOnScreen = function () {
 
+$.fn.isOnScreen = function () {
   //Window Object
   var win = $(window);
   //Object to Check
@@ -20,12 +20,6 @@ $.fn.isOnScreen = function () {
   return (visibleArea >= objEndPos && scrollPosition <= objEndPos ? true : false)
 };
 
-//
-$(window).on('scroll', function () {
-  if (slider.isOnScreen()) {
-
-  }
-});
 (function ($) {
   $(document).ready(function () {
         //slider page initialization
