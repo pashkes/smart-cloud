@@ -17,63 +17,73 @@ $.fn.isOnScreen = function () {
   var objEndPos = (obj.offset().top + obj.outerHeight());
   return (visibleArea >= objEndPos && scrollPosition <= objEndPos ? true : false)
 };
+//slider page initialization
+function initializeSlider() {
+  if (slider.length) {
+    slider.slick({
+      vertical: true,
+      verticalSwiping: true,
+      accessibility: true,
+      centerPadding: '0px',
+      infinite: true,
+      centerMode: true,
+      dots: true,
+      arrows: false,
+      useTransform: false,
+      adaptiveHeight: true,
+      autoplay: false,
+      autoplaySpeed: 3000,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: "unslick"
+        }
+      ]
+    });
+  }
+  //
+  var windowHeight = $(window).height();
+  var sliderOffsetTop = slider.offset().top;
+  var sliderHeight = slider.height() / 2;
+  var played = false;
 
+  $(window).on('scroll load ready resize',function() {
+    if ($('body').scrollTop() > sliderOffsetTop - windowHeight + sliderHeight * 2 && $('body').scrollTop() < sliderOffsetTop + sliderHeight) {
+      if (!played) {
+        slider.slick('slickPlay');
+        played = true;
+        console.log('play');
+      }
+    } else {
+      slider.slick('slickPause');
+      played = false;
+      console.log('pause');
+    }
+
+  });
+
+
+  //toggle key up slider
+  slider.keyup(function (e) {
+    if (e.keyCode === 38) $(this).slick('slickPrev');     // enter
+    if (e.keyCode === 40) $(this).slick('slickNext');   // esc
+  });
+}
+// Slick resize
+$(window).resize(function () {
+  slider.slick('resize');
+});
+
+$(window).on('orientationchange', function () {
+  slider.slick('resize');
+});
+var slider = $('.slider');
+
+initializeSlider();
 (function ($) {
-  var slider = $('.slider');
+
 
   $(document).ready(function () {
-        //slider page initialization
-        function initializeSlider() {
-          if (slider.length) {
-            slider.slick({
-              vertical: true,
-              verticalSwiping: true,
-              accessibility: true,
-              centerPadding: '0px',
-              infinite: true,
-              centerMode: true,
-              dots: true,
-              arrows: false,
-              useTransform: false,
-              adaptiveHeight: true,
-              autoplay: false,
-              autoplaySpeed: 3000,
-              responsive: [
-                {
-                  breakpoint: 1024,
-                  settings: "unslick"
-                }
-              ]
-            });
-          }
-          //
-          var windowHeight = $(window).height();
-          var sliderOffsetTop = slider.offset().top;
-          var sliderHeight = slider.height() / 2;
-          var played = false;
-
-          $(document).scroll(function() {
-            if ($('body').scrollTop() > sliderOffsetTop - sliderHeight - windowHeight  && $('body').scrollTop() < sliderOffsetTop + sliderHeight) {
-              if (!played) {
-                slider.slick('slickPlay');
-                played = true
-              }
-            } else {
-              slider.slick('slickPause');
-              played = false
-            }
-
-          });
-
-
-          //toggle key up slider
-          slider.keyup(function (e) {
-            if (e.keyCode === 38) $(this).slick('slickPrev');     // enter
-            if (e.keyCode === 40) $(this).slick('slickNext');   // esc
-          });
-        }
-
-        initializeSlider();
         /*open/close form popap*/
         var btn = $('.btn--open-popap');
         var overlay = $('.overlay');
@@ -126,14 +136,6 @@ $.fn.isOnScreen = function () {
   );
 })(jQuery);
 
-// Slick resize
-$(window).resize(function () {
-  slider.slick('resize');
-});
-
-$(window).on('orientationchange', function () {
-  slider.slick('resize');
-});
 
 
 //Animate number and Progress bar
