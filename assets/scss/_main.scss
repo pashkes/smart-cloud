@@ -6,8 +6,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   line-height: 1.4;
   font-weight: 300;
-  background-color: #191128;
-  background-image: linear-gradient(to top, #e7f4ff 0%, #ffffff 100%);
+  background-color: #fff;
 }
 
 .btn {
@@ -539,7 +538,7 @@ $button-trans-delay: 0.3s;
 .features__inner {
   @include container;
   padding-top: 44px;
-  padding-bottom: 134px;
+  padding-bottom: 86px;
 }
 
 .features__title {
@@ -673,6 +672,11 @@ $button-trans-delay: 0.3s;
 .platforms {
   @include container;
   padding-bottom: 75px;
+
+}
+.shadow {
+	background: url(./../img/bg-gradient.png) 0 0 repeat-x;
+	padding-top: 68px;
 }
 
 .platforms__title {

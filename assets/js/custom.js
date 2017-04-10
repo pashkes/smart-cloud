@@ -47,20 +47,20 @@ function initializeSlider() {
   var sliderHeight = slider.height() / 2;
   var played = false;
 
-  $(window).on('scroll load ready resize',function() {
-    if ($('body').scrollTop() > sliderOffsetTop - windowHeight + sliderHeight * 2 && $('body').scrollTop() < sliderOffsetTop + sliderHeight) {
-      if (!played) {
-        slider.slick('slickPlay');
-        played = true;
-        console.log('play');
-      }
-    } else {
-      slider.slick('slickPause');
-      played = false;
-      console.log('pause');
-    }
-
-  });
+  //$(window).on('scroll load ready resize',function() {
+  //  if ($('body').scrollTop() > sliderOffsetTop - windowHeight + (sliderHeight * 2) && $('body').scrollTop() < sliderOffsetTop + sliderHeight) {
+  //    if (!played) {
+  //      slider.slick('slickPlay');
+  //      played = true;
+  //      console.log('play');
+  //    }
+  //  } else {
+  //    slider.slick('slickPause');
+  //    played = false;
+  //    console.log('pause');
+  //  }
+  //
+  //});
 
 
   //toggle key up slider
