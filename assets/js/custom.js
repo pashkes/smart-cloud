@@ -42,25 +42,27 @@ function initializeSlider() {
     });
   }
   //
-  var windowHeight = $(window).height();
-  var sliderOffsetTop = slider.offset().top;
-  var sliderHeight = slider.height() / 2;
+
   var played = false;
 
-  //$(window).on('scroll load ready resize',function() {
-  //  if ($('body').scrollTop() > sliderOffsetTop - windowHeight + (sliderHeight * 2) && $('body').scrollTop() < sliderOffsetTop + sliderHeight) {
-  //    if (!played) {
-  //      slider.slick('slickPlay');
-  //      played = true;
-  //      console.log('play');
-  //    }
-  //  } else {
-  //    slider.slick('slickPause');
-  //    played = false;
-  //    console.log('pause');
-  //  }
-  //
-  //});
+  $(window).on('scroll load ready resize',function() {
+    if(slider.length) {
+      var windowHeight = $(window).height();
+      var sliderOffsetTop = slider.offset().top;
+      var sliderHeight = slider.height() / 2;
+      if ($('body').scrollTop() > sliderOffsetTop - windowHeight + (sliderHeight * 2) && $('body').scrollTop() < sliderOffsetTop + sliderHeight) {
+        if (!played) {
+          slider.slick('slickPlay');
+          played = true;
+        }
+      } else {
+        slider.slick('slickPause');
+        played = false;
+      }
+    }
+
+
+  });
 
 
   //toggle key up slider
@@ -84,6 +86,13 @@ initializeSlider();
 
 
   $(document).ready(function () {
+    //open-close help pricing
+    if($('.pricing__what').length) {
+      $('.pricing__what').on('click', function () {
+        $('.pricing__help').toggleClass('js-help-show')
+      });
+    }
+
         /*open/close form popap*/
         var btn = $('.btn--open-popap');
         var overlay = $('.overlay');

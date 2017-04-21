@@ -47,6 +47,32 @@ body {
       background-color: darken($green, 10%);
     }
   }
+  &--light-blue {
+    background-color: $light-blue;
+    &:hover {
+      background-color: darken($light-blue, 10%);
+    }
+    &:active {
+      background-color: darken($light-blue, 20%);
+    }
+  }
+  &--blue {
+    background-color: $blue;
+    &:hover {
+      background-color: lighten($blue, 10%);
+    }
+    &:active {
+      background-color: darken($blue, 10%);
+    }
+  }
+  &--green {
+    &:hover {
+      background-color: lighten($green, 5%);
+    }
+    &:active {
+      background-color: darken($green, 5%);
+    }
+  }
 }
 
 @mixin opacity {
@@ -272,11 +298,17 @@ $button-trans-delay: 0.3s;
   flex-direction: column;
   min-height: 700px;
   padding-top: 83px;
-  background-color: #417381;
-  background-image: linear-gradient(180deg, #193074 0%, #2578a2 53%, #2297a1 100%);
   overflow: hidden;
   h1 {
     margin-bottom: 5px;
+  }
+  &--pricing {
+    min-height: 1px;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    .header__top {
+      background-image: linear-gradient(to left, #193074 0%, #2578a2 100%);
+    }
   }
 }
 
@@ -1693,7 +1725,264 @@ $button-trans-delay: 0.3s;
     opacity: 0;
   }
 }
-
+.pricing__subject {
+  position: relative;
+  font-size: 47px;
+  margin-bottom: 30px;
+}
+.pricing {
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 200px;
+    background-image: linear-gradient(to left, #193074 0%, #2578a2 100%);
+  }
+}
+.pricing__inner {
+  @include container;
+  padding-top: 37px;
+  margin-bottom: 174px;
+}
+.pricing__list {
+  position: relative;
+  width: 100%;
+  vertical-align: middle;
+  text-align: center;
+  background-color: #fff;
+  td,th{
+    border-bottom: 1px solid #e8f4fb;
+    border-right: 1px solid #e8f4fb;
+    text-align: center;
+  }
+  th{
+    border-top: 1px solid #e8f4fb;
+  }
+  th:first-child {
+    border-left: 1px solid #e8f4fb;
+  }
+  tbody tr:last-child td{
+    border-bottom: 1px solid #e8f4fb;
+  }
+  tbody tr:last-child  td{
+    background-color: #f4fafd;
+  }
+  tbody tr td:first-child{
+    border-left: 1px solid #e8f4fb;
+  }
+}
+td.pricing__option {
+  text-align: left;
+}
+.pricing__main-text {
+  width: 30%;
+  padding-left: 43px;
+  vertical-align: top;
+  padding-top: 55px;
+  padding-bottom: 55px;
+  p {
+    text-align: left;
+    color: #050707;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 1.44;
+  }
+  small {
+    display: block;
+    margin-top: 10px;
+    color: #050707;
+    font-weight: 400;
+    font-size: 17px;
+  }
+}
+th.pricing__head {
+  border: none;
+}
+.pricing__head {
+  width: 23.3333%;
+  padding: 11px;
+  font-size: 21px;
+  font-weight: 400;
+  color: #ffffff;
+  &--light-blue {
+    background-color: $light-blue;
+  }
+  &--blue {
+    background-color: $blue;
+  }
+  &--green {
+    background-color: $green;
+  }
+  small {
+    display: block;
+    font-size: 13px;
+  }
+}
+.pricing__cost {
+  position: relative;
+  display: inline-block;
+  color: #050707;
+  font-family: Raleway;
+  font-size: 38px;
+  line-height: 1;
+}
+.pricing__what {
+  display: inline-block;
+  vertical-align: top;
+  position: absolute;
+  top: -4px;
+  right: -17px;
+  width: 16px;
+  height: 16px;
+  line-height: 16px;
+  text-align: center;
+  font-size: 10px;
+  border: 2px solid #a8a2a2;
+  color: #a8a2a2;
+  background-color: transparent;
+  border-radius: 50%;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all .35s ease-out;
+  span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all .35s ease-out;
+  }
+  &:hover {
+    border-color: $blue;
+    span {
+      color: $blue;
+    }
+  }
+}
+.pricing__price {
+  position: relative;
+  text-align: left;
+  vertical-align: middle;
+  font-weight: 300;
+}
+.pricing__coasting{
+  display: inline-block;
+  max-width: 130px;
+  padding: 0 8px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  &--bdr-line{
+    border-right: 1px solid #e8f4fb;
+  }
+}
+.pricing__count-user {
+  display: inline-block;
+  width: 100%;
+  font-size: 14px;
+  line-height: 1;
+}
+.pricing__buttons {
+  td {
+    background-color: #f2fafe;
+    padding: 20px 30px;
+  }
+}
+.pricing__btn {
+  width: 100%;
+}
+.pricing__help {
+  position: absolute;
+  top: 75px;
+  left: -22px;
+  width: 378px;
+  padding: 19px 23px;
+  box-shadow: 0 1px 35px 1px rgba(37, 54, 93, 0.2);
+  background-color:#fff;
+  text-align: left;
+  z-index: 10;
+  opacity: 0;
+  transform: translateY(20px);
+  visibility: hidden;
+  transition: all .5s ease-out;
+  p {
+    color: #2e2e2e;
+    font-size: 16px;
+    font-weight: 400;
+  }
+  &::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    transform: translateX(-50%) rotate(-45deg);
+  }
+}
+.js-help-show {
+  visibility: visible;
+  opacity: 1;
+  transform: none;
+}
+.pricing__help-item {
+  position: relative;
+  margin-bottom: 8px;
+  padding-left: 14px;
+  color: #2e2e2e;
+  font-size: 13px;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 0;
+    width: 5px;
+    height: 5px;
+    background-color: #afd8e9;
+    border-radius: 50%;
+  }
+}
+.pricing__option-item {
+  display: flex;
+  align-items: center;
+}
+.pricing__option {
+  padding: 15px 12px;
+}
+.pricing__img {
+  width: 76px;
+  margin-right: 7px;
+}
+.pricing__option-text {
+  max-width: 167px;
+  p {
+    font-size: 17px;
+  }
+}
+.pricing__option-more {
+  margin-left: auto;
+  border: none;
+  background-color: transparent;
+  color: #109dd9;
+  font-family: "Open Sans";
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all .3s ease-out;
+  &:hover {
+    color: $green;
+  }
+}
+.pricing__availability {
+  color: #545454;
+  font-family: "Open Sans";
+  font-size: 17px;
+  font-weight: 400;
+  vertical-align: middle;
+}
 @media (max-width: 1177px) {
   .features__group {
     &:nth-child(2n) {
@@ -1709,7 +1998,6 @@ $button-trans-delay: 0.3s;
     text-align: center;
   }
 }
-
 @media (max-width: 1024px) {
   .header__logo {
     position: relative;
