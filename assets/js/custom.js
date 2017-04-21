@@ -1,12 +1,10 @@
 'use strict';
 
-var slider = $('.slider');
-
 /**
  * Document ready functions
  */
-$.fn.isOnScreen = function () {
 
+$.fn.isOnScreen = function () {
   //Window Object
   var win = $(window);
   //Object to Check
@@ -19,46 +17,82 @@ $.fn.isOnScreen = function () {
   var objEndPos = (obj.offset().top + obj.outerHeight());
   return (visibleArea >= objEndPos && scrollPosition <= objEndPos ? true : false)
 };
-
-//
-$(window).on('scroll', function () {
-  if (slider.isOnScreen()) {
-
-  }
-});
-(function ($) {
-  $(document).ready(function () {
-        //slider page initialization
-        function initializeSlider() {
-          if (slider.length) {
-            slider.slick({
-              vertical: true,
-              verticalSwiping: true,
-              accessibility: true,
-              centerPadding: '0px',
-              infinite: true,
-              centerMode: true,
-              dots: true,
-              arrows: false,
-              useTransform: false,
-              adaptiveHeight: true,
-              responsive: [
-                {
-                  breakpoint: 1024,
-                  settings: "unslick"
-                }
-              ]
-            });
-          }
-
-          //toggle key up slider
-          slider.keyup(function (e) {
-            if (e.keyCode === 38) $(this).slick('slickPrev');     // enter
-            if (e.keyCode === 40) $(this).slick('slickNext');   // esc
-          });
+//slider page initialization
+function initializeSlider() {
+  if (slider.length) {
+    slider.slick({
+      vertical: true,
+      verticalSwiping: true,
+      accessibility: true,
+      centerPadding: '0px',
+      infinite: true,
+      centerMode: true,
+      dots: true,
+      arrows: false,
+      useTransform: false,
+      adaptiveHeight: true,
+      autoplay: false,
+      autoplaySpeed: 3000,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: "unslick"
         }
+      ]
+    });
+  }
+  //
 
-        initializeSlider();
+  var played = false;
+
+  $(window).on('scroll load ready resize',function() {
+    if(slider.length) {
+      var windowHeight = $(window).height();
+      var sliderOffsetTop = slider.offset().top;
+      var sliderHeight = slider.height() / 2;
+      if ($('body').scrollTop() > sliderOffsetTop - windowHeight + (sliderHeight * 2) && $('body').scrollTop() < sliderOffsetTop + sliderHeight) {
+        if (!played) {
+          slider.slick('slickPlay');
+          played = true;
+        }
+      } else {
+        slider.slick('slickPause');
+        played = false;
+      }
+    }
+
+
+  });
+
+
+  //toggle key up slider
+  slider.keyup(function (e) {
+    if (e.keyCode === 38) $(this).slick('slickPrev');     // enter
+    if (e.keyCode === 40) $(this).slick('slickNext');   // esc
+  });
+}
+// Slick resize
+$(window).resize(function () {
+  slider.slick('resize');
+});
+
+$(window).on('orientationchange', function () {
+  slider.slick('resize');
+});
+var slider = $('.slider');
+
+initializeSlider();
+(function ($) {
+
+
+  $(document).ready(function () {
+    //open-close help pricing
+    if($('.pricing__what').length) {
+      $('.pricing__what').on('click', function () {
+        $('.pricing__help').toggleClass('js-help-show')
+      });
+    }
+
         /*open/close form popap*/
         var btn = $('.btn--open-popap');
         var overlay = $('.overlay');
@@ -111,15 +145,6 @@ $(window).on('scroll', function () {
   );
 })(jQuery);
 
-
-// Slick resize
-$(window).resize(function () {
-  slider.slick('resize');
-});
-
-$(window).on('orientationchange', function () {
-  slider.slick('resize');
-});
 
 
 //Animate number and Progress bar
