@@ -2463,7 +2463,8 @@ th.pricing__head {
 
 .pricing__img {
   width: 83px;
-  text-align: center; }
+  text-align: center;
+  margin-right: 10px; }
 
 .pricing__icon {
   margin-right: 19px; }
@@ -5246,11 +5247,11 @@ th.pricing__head {
   .pricing__price{
     padding: 15px; }
   .pricing__option-item{
-    -webkit-box-align: start;
-    -webkit-align-items: flex-start;
-    -ms-flex-align: start;
-    -ms-grid-row-align: flex-start;
-    align-items: flex-start; }
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    -ms-grid-row-align: center;
+    align-items: center; }
   .pricing__option-more{
     margin-left: 0;
     padding-left: 0; }

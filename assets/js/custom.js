@@ -83,15 +83,17 @@ initializeSlider();
 (function ($) {
   $(document).ready(function () {
 
+    //Show and Hide pricing table group
     $('.pricing__more-item').hide();
 
     $('.pricing__option-more').on('click', function () {
           $(this).text(function (i, text) {
             return text === "more" ? "hide" : "more";
           });
-          $('.pricing__more-item').toggle();
-          $('.pricing__group1').toggleClass('pricing__group--active');
-          $('.pricing__more-item').toggleClass('pricing__more-item--show')
+
+          $(this).parents().nextAll('.pricing__more-item').toggle();
+          $(this).parents('.pricing__group').toggleClass('pricing__group--active');
+          $(this).parents().nextAll('.pricing__more-item').toggleClass('pricing__more-item--show')
         });
 
         //open-close help pricing
