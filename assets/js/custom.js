@@ -45,11 +45,12 @@ function initializeSlider() {
 
   var played = false;
 
-  $(window).on('scroll load ready resize',function() {
-    if(slider.length) {
+  $(window).on('scroll load ready resize', function () {
+    if (slider.length) {
       var windowHeight = $(window).height();
       var sliderOffsetTop = slider.offset().top;
       var sliderHeight = slider.height() / 2;
+      slider.slick('resize');
       if ($('body').scrollTop() > sliderOffsetTop - windowHeight + (sliderHeight * 2) && $('body').scrollTop() < sliderOffsetTop + sliderHeight) {
         if (!played) {
           slider.slick('slickPlay');
@@ -71,27 +72,42 @@ function initializeSlider() {
     if (e.keyCode === 40) $(this).slick('slickNext');   // esc
   });
 }
-// Slick resize
-$(window).resize(function () {
-  slider.slick('resize');
-});
-
 $(window).on('orientationchange', function () {
-  slider.slick('resize');
+  if (slider.length) {
+    slider.slick('resize');
+  }
 });
 var slider = $('.slider');
 
 initializeSlider();
 (function ($) {
-
-
   $(document).ready(function () {
-    //open-close help pricing
-    if($('.pricing__what').length) {
-      $('.pricing__what').on('click', function () {
-        $('.pricing__help').toggleClass('js-help-show')
-      });
-    }
+
+    $('.pricing__more-item').hide();
+
+    $('.pricing__option-more').on('click', function () {
+          $(this).text(function (i, text) {
+            return text === "more" ? "hide" : "more";
+          });
+          $('.pricing__more-item').toggle();
+          $('.pricing__group1').toggleClass('pricing__group--active');
+          $('.pricing__more-item').toggleClass('pricing__more-item--show')
+        });
+
+        //open-close help pricing
+        if ($('.pricing__what').length) {
+          $('.pricing__what').on('click', function () {
+            $(this).toggleClass('pricing__what--active');
+            $('.pricing__help').toggleClass('js-help-show')
+          });
+        }
+        $(document).mouseup(function (e) {
+          if ($('.pricing__what').has(e.target).length === 0) {
+            $('.pricing__help').removeClass('js-help-show');
+            $('.pricing__what').removeClass('pricing__what--active');
+          }
+        });
+
 
         /*open/close form popap*/
         var btn = $('.btn--open-popap');
@@ -144,7 +160,6 @@ initializeSlider();
       }
   );
 })(jQuery);
-
 
 
 //Animate number and Progress bar

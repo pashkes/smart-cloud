@@ -37,14 +37,15 @@
 <div class="pricing">
   <div class="pricing__inner">
     <h1 class="pricing__subject">Pricing</h1>
-    <table class="pricing__list">
+    <table class="pricing__list  pricing__list--desktop">
       <thead class="pricing__header">
       <tr>
         <th rowspan="3" class="pricing__main-text">
           <p>Select the subscription
             that best features your
             needs
-            <small>(billed annually)</small> </p>
+            <small>(billed annually)</small>
+          </p>
         </th>
         <th class="pricing__head  pricing__head--light-blue">Free</th>
         <th class="pricing__head  pricing__head--blue">Corporate
@@ -56,16 +57,20 @@
       </tr>
       <tr>
         <td class="pricing__price">
-          <span class="pricing__cost">$0 <button class="pricing__what" type="button"><span>?</span></button></span>
-          <div class="pricing__help">
-            <p>Free version limitations:</p>
-            <ul class="pricing__help-list">
-              <li class="pricing__help-item">No edit option for Contacts, Leads, Accounts, Cases and Opportunities.</li>
-              <li class="pricing__help-item">Quick add to activity history is not available</li>
-              <li class="pricing__help-item">Search is limited with up to 3 records per each object</li>
-              <li class="pricing__help-item">No support, only access to Knowledge Base</li>
-              <li class="pricing__help-item">Available only for 10 users per Organization</li>
-            </ul>
+          <div class="pricing__cost">$0
+            <div class="pricing__what-inner">
+              <button class="pricing__what" type="button"><span>?</span></button>
+              <div class="pricing__help">
+                <p>Free version limitations:</p>
+                <ul class="pricing__help-list">
+                  <li class="pricing__help-item">No edit option for Contacts, Leads, Accounts, Cases and Opportunities.</li>
+                  <li class="pricing__help-item">Quick add to activity history is not available</li>
+                  <li class="pricing__help-item">Search is limited with up to 3 records per each object</li>
+                  <li class="pricing__help-item">No support, only access to Knowledge Base</li>
+                  <li class="pricing__help-item">Available only for 10 users per Organization</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </td>
         <td class="pricing__price">
@@ -87,88 +92,418 @@
       </tr>
       <tr class="pricing__buttons">
         <td>
-          <button class="pricing__btn  btn  btn--light-blue" type="button">Try now</button>
+          <button class="pricing__btn  btn  btn--light-blue btn--open-popap" type="button">Try now</button>
         </td>
         <td>
-          <button class="pricing__btn  btn  btn--blue" type="button">Buy now</button>
+          <button class="pricing__btn  btn  btn--blue btn--open-popap" type="button">Buy now</button>
         </td>
         <td>
-          <button class="pricing__btn  btn  btn--green" type="button">Request a quote</button>
+          <button class="pricing__btn  btn  btn--green btn--open-popap" type="button">Request a quote</button>
         </td>
       </tr>
       </thead>
       <tbody>
       <tr>
-        <td class="pricing__option">
-          <div class="pricing__option-item">
-            <div class="pricing__img"><img src="assets/img/features-icon-1.svg" width="59" height="54"
-                                           alt="Close deals Faster"></div>
-            <p class="pricing__option-text">Close deals Faster</p>
-            <button class="pricing__option-more" type="button">more</button>
-          </div>
+        <td colspan="4">
+          <table class="pricing__group pricing__group1">
+            <tr>
+              <td class="pricing__option">
+                <div class="pricing__option-item">
+                  <div class="pricing__img"><img src="assets/img/features-icon-1.svg" width="59" height="54"
+                                                 alt="Close deals Faster"></div>
+                  <div class="pricing__option-text">
+                      <p>Close deals Faster</p>
+                  </div>
+                  <button class="pricing__option-more" type="button">more</button>
+                </div>
+              </td>
+              <td class="pricing__availability">Limited</td>
+              <td class="pricing__availability">Yes</td>
+              <td class="pricing__availability">Yes</td>
+            </tr>
+            <tr class="pricing__more-item">
+              <td class="pricing__option">
+                <div class="pricing__option-sub">
+                  <div class="pricing__tiny">
+                  <span class="features__group-icon">icon-1</span>
+                  </div>
+                  <p class="pricing__text-group">Automatically Sync All Your Contacts,
+                    Activities, and Emails to Salesforce</p>
+                </div>
+              </td>
+              <td class="pricing__availability"><img src="assets/img/not-icon.svg" width="16" height="16" alt="no"></td>
+              <td class="pricing__availability"><img src="assets/img/yes-blue.svg" width="17" height="13" alt="yes">
+              </td>
+              <td class="pricing__availability"><img src="assets/img/yes-green.svg" width="17" height="13" alt="yes">
+              </td>
+            </tr>
+            <tr class="pricing__more-item">
+              <td class="pricing__option">
+                <div class="pricing__option-sub">
+                  <div class="pricing__tiny">
+                  <span class="features__group-icon">icon-1</span>
+                  </div>
+                  <p class="pricing__text-group">100% custom objects support</p>
+                </div>
+              </td>
+              <td class="pricing__availability"><img src="assets/img/not-icon.svg" width="16" height="16" alt="no"></td>
+              <td class="pricing__availability"><img src="assets/img/yes-blue.svg" width="17" height="13" alt="yes">
+              </td>
+              <td class="pricing__availability"><img src="assets/img/yes-green.svg" width="17" height="13" alt="yes">
+              </td>
+            </tr>
+            <tr class="pricing__more-item">
+              <td class="pricing__option">
+                <div class="pricing__option-sub">
+                  <div class="pricing__tiny">
+                    <span class="features__group-icon">icon-1</span>
+                  </div>
+                  <p class="pricing__text-group">Support Salesforce Custom Buttons</p>
+                </div>
+              </td>
+              <td class="pricing__availability"><img src="assets/img/not-icon.svg" width="16" height="16" alt="no"></td>
+              <td class="pricing__availability"><img src="assets/img/yes-blue.svg" width="17" height="13" alt="yes">
+              </td>
+              <td class="pricing__availability"><img src="assets/img/yes-green.svg" width="17" height="13" alt="yes">
+              </td>
+            </tr>
+            <tr class="pricing__more-item">
+              <td class="pricing__option">
+                <div class="pricing__option-sub">
+                  <div class="pricing__tiny"><span class="features__group-icon">icon-1</span></div>
+                  <p class="pricing__text-group">Auto-Matching Salesforce CustomLayouts</p>
+                </div>
+              </td>
+              <td class="pricing__availability"><img src="assets/img/not-icon.svg" width="16" height="16" alt="no"></td>
+              <td class="pricing__availability"><img src="assets/img/yes-blue.svg" width="17" height="13" alt="yes">
+              </td>
+              <td class="pricing__availability"><img src="assets/img/yes-green.svg" width="17" height="13" alt="yes">
+              </td>
+            </tr>
+            <tr class="pricing__more-item">
+              <td class="pricing__option">
+                <div class="pricing__option-sub">
+                  <div class="pricing__tiny">
+                    <span class="features__group-icon">icon-1</span>
+                  </div>
+                  <p class="pricing__text-group">Users Group management</p>
+                </div>
+              </td>
+              <td class="pricing__availability"><img src="assets/img/not-icon.svg" width="16" height="16" alt="no"></td>
+              <td class="pricing__availability"><img src="assets/img/yes-blue.svg" width="17" height="13" alt="yes">
+              </td>
+              <td class="pricing__availability"><img src="assets/img/yes-green.svg" width="17" height="13" alt="yes">
+              </td>
+            </tr>
+          </table>
         </td>
-        <td class="pricing__availability">Limited</td>
-        <td class="pricing__availability">Yes</td>
-        <td class="pricing__availability">Yes</td>
       </tr>
       <tr>
-        <td class="pricing__option">
-          <div class="pricing__option-item">
-            <div class="pricing__img">
-              <img src="assets/img/pricing-letter-icon.svg" width="66" height="44" alt="Single communication hub">
-            </div>
-            <p class="pricing__option-text">Single communication hub</p>
-            <button class="pricing__option-more" type="button">more</button>
-          </div>
+        <td colspan="4">
+          <table class="pricing__group">
+            <tr>
+              <td class="pricing__option">
+                <div class="pricing__option-item">
+                  <div class="pricing__img">
+                    <img src="assets/img/pricing-letter-icon.svg" width="66" height="44" alt="Single communication hub">
+                  </div>
+                  <div class="pricing__option-text">
+                      <p>Single communication hub</p>
+                  </div>
+                  <button class="pricing__option-more" type="button">more</button>
+                </div>
+              </td>
+              <td class="pricing__availability">Limited</td>
+              <td class="pricing__availability">Yes</td>
+              <td class="pricing__availability">Yes</td>
+            </tr>
+          </table>
         </td>
-        <td class="pricing__availability">Limited</td>
-        <td class="pricing__availability">Yes</td>
-        <td class="pricing__availability">Yes</td>
       </tr>
       <tr>
-        <td class="pricing__option">
-          <div class="pricing__option-item">
-            <div class="pricing__img">
-              <img src="assets/img/features-icon-3-03.svg" width="54" height="58" alt="Enrich and trust your CRM data">
-            </div>
-            <p class="pricing__option-text">Enrich and trust your CRM data</p>
-            <button class="pricing__option-more" type="button">more</button>
-          </div>
+        <td colspan="4">
+          <table class="pricing__group">
+            <tr>
+              <td class="pricing__option">
+                <div class="pricing__option-item">
+                  <div class="pricing__img">
+                    <img src="assets/img/features-icon-3-03.svg" width="54" height="58"
+                         alt="Enrich and trust your CRM data">
+                  </div>
+                  <div class="pricing__option-text">
+                      <p>Enrich and trust your CRM data</p>
+                  </div>
+                    <button class="pricing__option-more" type="button">more</button>
+                </div>
+              </td>
+              <td class="pricing__availability">Limited</td>
+              <td class="pricing__availability">Yes</td>
+              <td class="pricing__availability">Yes</td>
+            </tr>
+          </table>
         </td>
-        <td class="pricing__availability">Limited</td>
-        <td class="pricing__availability">Yes</td>
-        <td class="pricing__availability">Yes</td>
       </tr>
       <tr>
-        <td class="pricing__option">
-          <div class="pricing__option-item">
-            <div class="pricing__img">
-              <img src="assets/img/pricing-crm-icon.svg" width="76" height="49" alt="Increase CRM adoption">
-            </div>
-            <p class="pricing__option-text">Increase CRM adoption</p>
-            <button class="pricing__option-more" type="button">more</button>
-          </div>
+        <td colspan="4">
+          <table class="pricing__group">
+            <tr>
+              <td class="pricing__option">
+                <div class="pricing__option-item">
+                  <div class="pricing__img">
+                    <img src="assets/img/pricing-crm-icon.svg" width="76" height="49" alt="Increase CRM adoption">
+                  </div>
+                  <div class="pricing__option-text">
+                      <p>Increase CRM adoption</p>
+                  </div>
+                    <button class="pricing__option-more" type="button">more</button>
+                </div>
+              </td>
+              <td class="pricing__availability">no</td>
+              <td class="pricing__availability">Yes</td>
+              <td class="pricing__availability">Yes</td>
+            </tr>
+          </table>
         </td>
-        <td class="pricing__availability">no</td>
-        <td class="pricing__availability">Yes</td>
-        <td class="pricing__availability">Yes</td>
       </tr>
       <tr>
-        <td class="pricing__option">
-          <div class="pricing__option-item">
-            <div class="pricing__img">
-              <img src="assets/img/pricing-premium-icon.svg" width="57" height="62" alt="Premium subscription to perfectly fit your business">
-            </div>
-            <p class="pricing__option-text">Premium subscription to perfectly fit your business</p>
-            <button class="pricing__option-more" type="button">more</button>
-          </div>
+        <td colspan="4">
+          <table class="pricing__group pricing__group--purple-bg">
+            <tr>
+              <td class="pricing__option">
+                <div class="pricing__option-item">
+                  <div class="pricing__img">
+                    <img src="assets/img/pricing-premium-icon.svg" width="57" height="62"
+                         alt="Premium subscription to perfectly fit your business">
+                  </div>
+                  <div class="pricing__option-text">
+                    <p>Premium subscription to perfectly fit your business</p>
+                  </div>
+                  <button class="pricing__option-more" type="button">more</button>
+                </div>
+              </td>
+              <td class="pricing__availability">Limited</td>
+              <td class="pricing__availability">Yes</td>
+              <td class="pricing__availability">Yes</td>
+            </tr>
+          </table>
         </td>
-        <td class="pricing__availability">Limited</td>
-        <td class="pricing__availability">Yes</td>
-        <td class="pricing__availability">Yes</td>
       </tr>
       </tbody>
     </table>
+    <!--END--------------->
+
+    <!--START Mobile-->
+    <table class="pricing__list  pricing__list--mobile">
+      <thead class="pricing__header">
+      <tr>
+        <th colspan="2" class="pricing__main-text">
+          <p>Select the subscription
+            that best features your
+            needs
+            <small>(billed annually)</small>
+          </p>
+        </th>
+      </tr>
+      <tr>
+        <th colspan="2" class="pricing__head  pricing__head--light-blue">Free</th>
+      </tr>
+      <tr>
+        <td colspan="2" class="pricing__price">
+          <div class="pricing__cost">$0
+            <div class="pricing__what-inner">
+              <button class="pricing__what" type="button"><span>?</span></button>
+              <div class="pricing__help">
+                <p>Free version limitations:</p>
+                <ul class="pricing__help-list">
+                  <li class="pricing__help-item">No edit option for Contacts, Leads, Accounts, Cases and Opportunities.</li>
+                  <li class="pricing__help-item">Quick add to activity history is not available</li>
+                  <li class="pricing__help-item">Search is limited with up to 3 records per each object</li>
+                  <li class="pricing__help-item">No support, only access to Knowledge Base</li>
+                  <li class="pricing__help-item">Available only for 10 users per Organization</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr class="pricing__buttons">
+        <td>
+          <button class="pricing__btn  btn  btn--light-blue btn--open-popap" type="button">Try now</button>
+        </td>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>
+          <table class="pricing__group pricing__group1">
+            <tr>
+              <td class="pricing__option">
+                <div class="pricing__option-item">
+                  <div class="pricing__img"><img src="assets/img/features-icon-1.svg" width="59" height="54"
+                                                 alt="Close deals Faster"></div>
+                  <div class="pricing__option-text">
+                    <div class="pricing__text-inner">
+                      <p>Close deals Faster</p>
+                    </div>
+                    <button class="pricing__option-more" type="button">more</button>
+                  </div>
+                </div>
+              </td>
+              <td class="pricing__availability">Limited</td>
+            </tr>
+            <tr class="pricing__more-item">
+              <td class="pricing__option">
+                <div class="pricing__option-sub">
+                  <div class="pricing__tiny"><span class="features__group-icon">icon-1</span></div>
+                  <p class="pricing__text-group">Automatically Sync All Your Contacts,
+                    Activities, and Emails to Salesforce</p>
+                </div>
+              </td>
+              <td class="pricing__availability"><img src="assets/img/yes-green.svg" width="17" height="13" alt="yes">
+              </td>
+            </tr>
+            <tr class="pricing__more-item">
+              <td class="pricing__option">
+                <div class="pricing__option-sub">
+                  <div class="pricing__tiny">
+                    <div class="pricing__tiny"><span class="features__group-icon">icon-1</span></div>
+                  </div>
+                  <p class="pricing__text-group">100% custom objects support</p>
+                </div>
+              </td>
+              <td class="pricing__availability"><img src="assets/img/yes-green.svg" width="17" height="13" alt="yes">
+              </td>
+            </tr>
+            <tr class="pricing__more-item">
+              <td class="pricing__option">
+                <div class="pricing__option-item">
+                  <div class="pricing__tiny">
+                    <span class="features__group-icon">icon-1</span>
+                  </div>
+                  <p class="pricing__text-group">Support Salesforce Custom Buttons</p>
+                </div>
+              </td>
+              <td class="pricing__availability"><img src="assets/img/yes-green.svg" width="17" height="13" alt="yes">
+              </td>
+            </tr>
+            <tr class="pricing__more-item">
+              <td class="pricing__option">
+                <div class="pricing__option-item">
+                  <div class="pricing__tiny"><span class="features__group-icon">icon-1</span></div>
+                  <p class="pricing__text-group">Auto-Matching Salesforce CustomLayouts</p>
+                </div>
+              </td>
+              <td class="pricing__availability"><img src="assets/img/yes-green.svg" width="17" height="13" alt="yes">
+              </td>
+            </tr>
+            <tr class="pricing__more-item">
+              <td class="pricing__option">
+                <div class="pricing__option-item">
+                  <div class="pricing__tiny">
+                    <span class="features__group-icon">icon-1</span>
+                  </div>
+                  <p class="pricing__text-group">Users Group management</p>
+                </div>
+              </td>
+              <td class="pricing__availability"><img src="assets/img/yes-green.svg" width="17" height="13" alt="yes">
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <table class="pricing__group">
+            <tr>
+              <td class="pricing__option">
+                <div class="pricing__option-item">
+                  <div class="pricing__img">
+                    <img src="assets/img/pricing-letter-icon.svg" width="66" height="44" alt="Single communication hub">
+                  </div>
+                  <div class="pricing__option-text">
+                    <div class="pricing__text-inner">
+                      <p>Single communication hub</p>
+                    </div>
+                    <button class="pricing__option-more" type="button">more</button>
+                  </div>
+                </div>
+              </td>
+              <td class="pricing__availability">Limited</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <table class="pricing__group">
+            <tr>
+              <td class="pricing__option">
+                <div class="pricing__option-item">
+                  <div class="pricing__img">
+                    <img src="assets/img/features-icon-3-03.svg" width="54" height="58"
+                         alt="Enrich and trust your CRM data">
+                  </div>
+                  <div class="pricing__option-text">
+                    <div class="pricing__text-inner">
+                      <p class="">Enrich and trust your CRM data</p>
+                    </div>
+                    <button class="pricing__option-more" type="button">more</button>
+                  </div>
+                </div>
+              </td>
+              <td class="pricing__availability">Limited</td>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <table class="pricing__group">
+            <tr>
+              <td class="pricing__option">
+                <div class="pricing__option-item">
+                  <div class="pricing__img">
+                    <img src="assets/img/pricing-crm-icon.svg" width="76" height="49" alt="Increase CRM adoption">
+                  </div>
+                  <div class="pricing__option-text">
+                    <div class="pricing__text-inner">
+                      <p class="pricing__option-text">Increase CRM adoption</p>
+                    </div>
+                    <button class="pricing__option-more" type="button">more</button>
+                  </div>
+                </div>
+              </td>
+              <td class="pricing__availability">no</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <table class="pricing__group pricing__group--purple-bg">
+            <tr>
+              <td class="pricing__option">
+                <div class="pricing__option-item">
+                  <div class="pricing__img">
+                    <img src="assets/img/pricing-premium-icon.svg" width="57" height="62"
+                         alt="Premium subscription to perfectly fit your business">
+                  </div>
+                  <div class="pricing__option-text">
+                    <div class="pricing__text-inner">
+                      <p class="pricing__option-text">Premium subscription to perfectly fit your business</p>
+                    </div>
+                    <button class="pricing__option-more" type="button">more</button>
+                  </div>
+                </div>
+              </td>
+              <td class="pricing__availability">Limited</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+
   </div>
 </div>
 
@@ -203,11 +538,14 @@
         </div>
       </div>
       <ul class="footer__soc">
-        <li class="footer__soc-item"><a href="#" class="footer__soc-link  footer__soc-link--fb" target="_blank">facebook</a>
+        <li class="footer__soc-item"><a href="#" class="footer__soc-link  footer__soc-link--fb"
+                                        target="_blank">facebook</a>
         </li>
-        <li class="footer__soc-item"><a href="#" class="footer__soc-link  footer__soc-link--tw" target="_blank">twitter</a>
+        <li class="footer__soc-item"><a href="#" class="footer__soc-link  footer__soc-link--tw"
+                                        target="_blank">twitter</a>
         </li>
-        <li class="footer__soc-item"><a href="#" class="footer__soc-link  footer__soc-link--ins" target="_blank">linkeid</a>
+        <li class="footer__soc-item"><a href="#" class="footer__soc-link  footer__soc-link--ins"
+                                        target="_blank">linkeid</a>
         </li>
         <li class="footer__soc-item"><a href="#" class="footer__soc-link  footer__soc-link--google" target="_blank">google
           plus</a>
@@ -220,19 +558,15 @@
 <div class="overlay">
   <form class="form">
     <button class="form__close" type="button">close</button>
-    <div class="form__inner"><span class="form__title">Request a Demo</span>
-      <div class="form__soc">
-        <span class="form__soc-title">Login with your social account:</span>
-        <a href="#" class="form__soc-item form__soc-item--tw btn "><span class="form__soc-icon"><img
-                src="assets/img/soc-tw-icon-color.svg" width="12" height="12" alt="twitter"></span> Twitter</a>
-        <a href="#" class="form__soc-item  form__soc-item--insta btn"><span class="form__soc-icon"><img
-                src="assets/img/soc-icon-in-color.svg" width="12" height="10" alt="insta"></span> Linkedin</a>
-        <span class="form__or">Or</span>
-      </div>
+    <div class="form__inner"><span class="form__title">Purchase Subscription</span>
       <div class="form__fields">
         <div class="form__field-inner">
           <input type="text" class="form__field" id="full-name" required>
           <label for="full-name" class="form__label"><span class="form__required">*</span>Full name</label>
+        </div>
+        <div class="form__field-inner">
+          <input type="text" class="form__field" id="company" required>
+          <label for="company" class="form__label"><span class="form__required">*</span>Company</label>
         </div>
         <div class="form__field-inner">
           <input type="email" class="form__field" id="email" required>
@@ -242,12 +576,31 @@
           <input type="tel" class="form__field" id="phone" required>
           <label for="phone" class="form__label"><sup class="form__required">*</sup>Phone</label>
         </div>
-        <button class="form__submit btn" type="submit">Submit</button>
+        <div class="form__field-inner  form__field-inner--select-user">
+          <p class="form__select-user">Select number of users</p>
+          <button class="form__quality-user  form__quality-user--active" type="button">up to 100</button>
+          <button class="form__quality-user" type="button">100-500</button>
+          <button class="form__quality-user" type="button">500 - Unlim users</button>
+        </div>
+      </div>
+      <div class="form__container  form__container--user">
+        <div class="form__container-inner">
+          <span class="form__row-title">Your subscription:</span>
+          <span class="form__value">$15 per user/mouth</span>
+        </div>
+      </div>
+      <div class="form__container  form__container--user form__container--purple">
+        <div class="form__container-inner">
+          <span class="form__row-title">Total price:</span>
+          <span class="form__value  form__value--total">$180 per user/year</span>
+        </div>
+      </div>
+      <div class="form__container-inner">
+        <button class="form__submit btn" type="submit">proceed to payment</button>
       </div>
     </div>
   </form>
 </div>
-
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/custom.js"></script>
 </body>
