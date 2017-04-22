@@ -2406,7 +2406,7 @@ th.pricing__head {
   opacity: 0;
   -webkit-transform: translate(-50%, 20px);
           transform: translate(-50%, 20px);
-  visibility: hidden;
+  display: none;
   -webkit-transition: all .5s ease-out;
   transition: all .5s ease-out; }
   .pricing__help p {
@@ -2425,7 +2425,7 @@ th.pricing__head {
             transform: translateX(-50%) rotate(-45deg); }
 
 .js-help-show {
-  visibility: visible;
+  display: block;
   opacity: 1;
   -webkit-transform: translate(-50%, 0);
           transform: translate(-50%, 0); }
@@ -5293,7 +5293,11 @@ th.pricing__head {
     margin-bottom: 50px; }
   .form__quality-user{
     font-size: 13px;
-    padding: 7px 6px; } }
+    padding: 7px 6px; }
+  .pricing__help{
+    width: 318px; }
+  .pricing__list th{
+    border-right: 1px solid #e8f4fb; } }
 
 @media (max-width: 425px){
   .features__btn{
@@ -5326,4 +5330,6 @@ th.pricing__head {
   .footer__menu-link{
     font-size: 11px; }
   .form__fields{
-    padding: 6px 20px 0 20px; } }
+    padding: 6px 20px 0 20px; }
+  .pricing__help{
+    width: 210px; } }
