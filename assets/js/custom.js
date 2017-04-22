@@ -88,8 +88,8 @@ initializeSlider();
 
     $('.pricing__option-more').on('click', function () {
           $(this).text(function (i, text) {
-            return text === "more" ? "hide" : "more";
-          });
+            return text === "More" ? "Hide" : "More";
+          }).toggleClass('pricing__option-more--active');
 
           $(this).parents().nextAll('.pricing__more-item').toggle();
           $(this).parents('.pricing__group').toggleClass('pricing__group--active');

@@ -2170,7 +2170,7 @@ img {
           justify-content: space-between;
   max-width: 366px;
   margin: 0 auto;
-  padding: 0 15px;
+  padding: 0 20px;
   text-align: left; }
 
 .form__value {
@@ -2495,8 +2495,11 @@ th.pricing__head {
   font-weight: 400;
   cursor: pointer;
   -webkit-transition: all .3s ease-out;
-  transition: all .3s ease-out; }
+  transition: all .3s ease-out;
+  text-transform: capitalize; }
   .pricing__option-more:hover {
+    color: #8bcb00; }
+  .pricing__option-more--active {
     color: #8bcb00; }
 
 .pricing__availability {
@@ -5271,12 +5274,26 @@ th.pricing__head {
     -ms-flex-direction: row;
     flex-direction: row; }
   .pricing__option-text{
+    display: block;
+    width: auto; }
+  .pricing__coasting{
     display: block; }
+  .pricing__coasting--blue{
+    width: 115px;
+    margin-right: auto;
+    margin-left: auto; }
+  .pricing__availability{
+    min-width: auto; }
   .pricing__group tr td:first-child{
     border-right: none; }
   .pricing__main-text{
     padding-top: 20px;
-    padding-bottom: 20px; } }
+    padding-bottom: 20px; }
+  .pricing__list{
+    margin-bottom: 50px; }
+  .form__quality-user{
+    font-size: 13px;
+    padding: 7px 6px; } }
 
 @media (max-width: 425px){
   .features__btn{
