@@ -2170,7 +2170,6 @@ img {
           justify-content: space-between;
   max-width: 366px;
   margin: 0 auto;
-  padding: 0 20px;
   text-align: left; }
 
 .form__value {
@@ -2406,7 +2405,7 @@ th.pricing__head {
   opacity: 0;
   -webkit-transform: translate(-50%, 20px);
           transform: translate(-50%, 20px);
-  display: none;
+  visibility: hidden;
   -webkit-transition: all .5s ease-out;
   transition: all .5s ease-out; }
   .pricing__help p {
@@ -2425,7 +2424,7 @@ th.pricing__head {
             transform: translateX(-50%) rotate(-45deg); }
 
 .js-help-show {
-  display: block;
+  visibility: visible;
   opacity: 1;
   -webkit-transform: translate(-50%, 0);
           transform: translate(-50%, 0); }
@@ -5235,6 +5234,8 @@ th.pricing__head {
     margin-bottom: 20px; }
   .form__soc-item:last-of-type{
     margin-bottom: 0; }
+  .form__container-inner{
+    padding: 0 20px; }
   .features__group-text p{
     text-align: left; }
   .features__text{
