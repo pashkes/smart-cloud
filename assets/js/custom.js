@@ -114,7 +114,6 @@ initializeSlider();
           }
         });
 
-
         /*open/close form popap*/
         var btn = $('.btn--open-popap');
         var overlay = $('.overlay');

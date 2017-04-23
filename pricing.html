@@ -1206,9 +1206,12 @@
         </div>
         <div class="form__field-inner  form__field-inner--select-user">
           <p class="form__select-user">Select number of users</p>
-          <button class="form__quality-user  form__quality-user--active" type="button">up to 100</button>
-          <button class="form__quality-user" type="button">100-500</button>
-          <button class="form__quality-user" type="button">500 - Unlim users</button>
+          <input type="radio" name="plan" id="plan-1" checked>
+          <label for="plan-1" class="form__quality-user">up to 100</label>
+          <input type="radio" name="plan" id="plan-2">
+          <label for="plan-2" class="form__quality-user">100-500</label>
+          <input type="radio" name="plan" id="plan-3">
+          <label for="plan-3" class="form__quality-user">500 - Unlim users</label>
         </div>
       </div>
       <div class="form__container  form__container--user">
