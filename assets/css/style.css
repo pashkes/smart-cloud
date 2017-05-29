@@ -5788,9 +5788,7 @@ th.pricing__head {
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
-    padding-right: 20px;
-    padding-left: 20px;
-    padding-top: 10px; }
+    padding: 15px 20px 15px 20px; }
   .customers__review--show .customers__photo-big{
     margin-right: 10px; }
   .customers__review--show .customers__bio{
