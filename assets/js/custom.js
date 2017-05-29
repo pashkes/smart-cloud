@@ -80,7 +80,6 @@ $(function () {
   var popap = $('.form');
 
   btn.on('click', function () {
-    event.preventDefault ? event.preventDefault() : (event.returnValue = false);
     popap.addClass('form--show');
     overlay.addClass('overlay--show ');
   });
