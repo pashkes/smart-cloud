@@ -205,20 +205,11 @@ $(document).on('load scroll resize ready', function () {
 $(function () {
   if($('.customers').length) {
     $('.js-review-full').on('click', function () {
-      if ($(this).parents('.customers__review').hasClass('customers__review--show')) {
-        $(this).parents('.customers__review').removeClass('customers__review--show');
-        $(this).parents('.customers__review').find('.customers__full-bottom .customers__photo-big').prependTo('.customers__review-preview');
-        $(this).removeClass('customers__btn--active');
-      } else {
-        $(this).parents('.customers__review').addClass('customers__review--show');
-        $(this).parents('.customers__review-preview').find('.customers__photo-big').prependTo('.customers__full-bottom');
-        $(this).addClass('customers__btn--active');
-        $(this).parents('.customers__review').find('.customers__review-more').attr('data-scroll', '');
-      }
+        $(this).parents('.customers__review').toggleClass('customers__review--show');
+        $(this).toggleClass('customers__btn--active');
     });
     $('.js-hide-review').on('click', function () {
       $(this).parents('.customers__review').removeClass('customers__review--show');
-      $(this).parents('.customers__review').find('.customers__full-bottom .customers__photo-big').prependTo('.customers__review-preview');
       $(this).removeClass('customers__btn--active');
       $('body,html').animate({
         scrollTop: 0
