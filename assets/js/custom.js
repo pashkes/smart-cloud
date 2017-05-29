@@ -211,8 +211,10 @@ $(function () {
     $('.js-hide-review').on('click', function () {
       $(this).parents('.customers__review').removeClass('customers__review--show');
       $(this).removeClass('customers__btn--active');
+      var  posReview = $(this).parents('.customers__review');
+      console.log(posReview);
       $('body,html').animate({
-        scrollTop: 0
+        scrollTop: posReview.offset().top - 90
       }, 800);
       return false;
     });
