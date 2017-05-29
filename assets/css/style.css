@@ -2810,7 +2810,7 @@ th.pricing__head {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 20px 0;
+  padding-top: 20px;
   border-top: 1px solid #e8f4fb; }
 
 .customers__bio {
@@ -5857,6 +5857,10 @@ th.pricing__head {
     -ms-flex-align: start;
     -ms-grid-row-align: flex-start;
     align-items: flex-start; }
+  .customers__review--show .customers__full{
+    max-height: 4000px; }
+  .customers__review .customers__full-inner{
+    padding-bottom: 20px; }
   .customers__bottom-info{
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
