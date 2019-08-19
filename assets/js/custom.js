@@ -1,7 +1,23 @@
 'use strict';
 
+/**
+ * Document ready functions
+ */
+
+$.fn.isOnScreen = function () {
+  //Window Object
+  var win = $(window);
+  //Object to Check
+  var obj = $(this);
+  //the top Scroll Position in the page
+  var scrollPosition = win.scrollTop();
+  //the end of the visible area in the page, starting from the scroll position
+  var visibleArea = win.scrollTop() + win.height();
+  //the end of the object to check
+  var objEndPos = (obj.offset().top + obj.outerHeight());
+  return (visibleArea >= objEndPos && scrollPosition <= objEndPos ? true : false)
+};
 //slider page initialization
-var slider = $('.slider');
 function initializeSlider() {
   if (slider.length) {
     slider.slick({
@@ -19,15 +35,16 @@ function initializeSlider() {
       autoplaySpeed: 3000,
       responsive: [
         {
-          breakpoint: 1025,
+          breakpoint: 1024,
           settings: "unslick"
         }
       ]
     });
   }
+  //
 
-  //autoplay slider what it is position in viewport
   var played = false;
+
   $(window).on('scroll load ready resize', function () {
     if (slider.length) {
       var windowHeight = $(window).height();
@@ -44,7 +61,10 @@ function initializeSlider() {
         played = false;
       }
     }
+
+
   });
+
 
   //toggle key up slider
   slider.keyup(function (e) {
@@ -52,82 +72,110 @@ function initializeSlider() {
     if (e.keyCode === 40) $(this).slick('slickNext');   // esc
   });
 }
-//resize slider
 $(window).on('orientationchange', function () {
   if (slider.length) {
     slider.slick('resize');
   }
 });
+var slider = $('.slider');
+
 initializeSlider();
+(function ($) {
+  $(document).ready(function () {
 
-$(function () {
+        //Show and Hide pricing table group
+        if ($('.pricing__more-item').length) {
+          $('.pricing__more-item').hide();
 
-  //show table-row pricing
-  if ($('.pricing').length) {
-    $('.pricing__option-more').on('click', function () {
-      $(this).text(function (i, text) {
-        return text === "More" ? "Hide" : "More";
-      });
+          $('.pricing__option-more').on('click', function () {
+            $(this).text(function (i, text) {
+              return text === "More" ? "Hide" : "More";
+            }).toggleClass('pricing__option-more--active');
 
-      $(this).parents('.pricing__group').toggleClass('js-row-show');
-    });
-  }
-
-  /*open/close form popap*/
-  var btn = $('.btn--open-popap');
-  var overlay = $('.overlay');
-  var close = $('.form__close');
-  var popap = $('.form');
-
-  btn.on('click', function () {
-    popap.addClass('form--show');
-    overlay.addClass('overlay--show ');
-  });
-
-  overlay.mouseup(function (e) {
-    if (popap.has(e.target).length === 0) {
-      overlay.removeClass('overlay--show');
-      popap.removeClass('form--show');
-    }
-  });
-
-  close.on('click', function () {
-    event.preventDefault ? event.preventDefault() : (event.returnValue = false);
-    overlay.removeClass('overlay--show');
-    popap.removeClass('form--show');
-  });
+            $(this).parents().nextAll('.pricing__more-item').toggle();
+            $(this).parents('.pricing__group').toggleClass('pricing__group--active');
+            $(this).parents().nextAll('.pricing__more-item').toggleClass('pricing__more-item--show');
+            $(this).parents().next('.pricing__explore').toggleClass('pricing__explore--active');
+          });
+        }
 
 
-  //Toggle mobile menu
-  var burger = $('.burger');
-  var header = $('.header__top');
-  var menu = $('.menu__inner');
+        //open-close help pricing
+        if ($('.pricing__what').length) {
+          $('.pricing__what').on('click', function () {
+            $(this).toggleClass('pricing__what--active');
+            $('.pricing__help').toggleClass('js-help-show')
+          });
+        }
+        $(document).mouseup(function (e) {
+          if ($('.pricing__what').has(e.target).length === 0) {
+            $('.pricing__help').removeClass('js-help-show');
+            $('.pricing__what').removeClass('pricing__what--active');
+          }
+        });
 
-  burger.on('click', function () {
-    $(this).toggleClass('active');
-    header.toggleClass('js-menu-show');
-    menu.toggleClass('fadeInDownt');
-  });
 
-  //Sticky header
-  if (header.length) {
-    $(window).on('scroll', function () {
-      if ($(this).scrollTop() > 1) {
-        header.addClass("header__top--scroll-bg");
+        /*open/close form popap*/
+        var btn = $('.btn--open-popap');
+        var overlay = $('.overlay');
+        var close = $('.form__close');
+        var popap = $('.form');
+
+        btn.on('click', function () {
+          event.preventDefault ? event.preventDefault() : (event.returnValue = false);
+          popap.addClass('form--show');
+          overlay.addClass('overlay--show ');
+        });
+
+        overlay.mouseup(function (e) {
+          if (popap.has(e.target).length === 0) {
+            overlay.removeClass('overlay--show');
+            popap.removeClass('form--show');
+          }
+        });
+
+        close.on('click', function () {
+          event.preventDefault ? event.preventDefault() : (event.returnValue = false);
+          overlay.removeClass('overlay--show');
+          popap.removeClass('form--show');
+        });
+
+
+        //Toggle mobile menu
+        var burger = $('.toggle-menu');
+        var header = $('.header__top');
+        var menu = $('.menu__inner');
+
+        burger.on('click', function () {
+          $(this).toggleClass('active');
+          header.toggleClass('js-menu-show');
+          menu.toggleClass('fadeInDownt');
+        });
+
+        //Sticky header
+        if (header.length) {
+          $(window).on('scroll', function () {
+            if ($(this).scrollTop() > 1) {
+              header.addClass("header__top--scroll-bg");
+            }
+            else {
+              header.removeClass("header__top--scroll-bg");
+            }
+          });
+        }
       }
-      else {
-        header.removeClass("header__top--scroll-bg");
-      }
-    });
-  }
-});
+  );
+})(jQuery);
+
 
 //Animate number and Progress bar
 function animateNumberAndProgress() {
   if ($('.benefits').length) {
     $('.fun-level').animateNumber(
         {
-          easing: 'easeInQuad',
+          easing: 'easeInQuad', // require jquery.easing
+          // optional custom step function
+          // using here to keep '%' sign after number
           numberStep: function (now, tween) {
             var floored_number = Math.floor(now),
                 target = $(tween.elem);
@@ -169,20 +217,39 @@ function animateNumberAndProgress() {
 }
 animateNumberAndProgress();
 
+var isMobile = navigator.userAgent.match(/Mobile/i) == "Mobile";
 
-//ANIMATION ON SCROLL
-document.addEventListener('DOMContentLoaded', function () {
-  var trigger = new ScrollTrigger({
-    toggle: {
-      visible: 'show-element'
-    },
-    offset: {
-      x: 0,
-      y: 200
-    },
-    once: true
-  }, document.body, window);
-});
+
+//Start animation in viewport
+(function ($) {
+
+  $(window).on('scroll load resize ready', function () {
+    var animateElements = [
+          $('.intro__subject'),
+          $('.intro__subtitle'),
+          $('.intro__btn-visible'),
+          $('.banner'),
+          $('.features__title'),
+          $('.subscribe__title'),
+          $('.subscribe__subtitle'),
+          $('.subscribe__item '),
+          $('.platforms__icon'),
+          $('.platforms__title'),
+          $('.platforms__text')
+        ],
+        visibleClass = "show-element";
+
+    $.each(animateElements, function (key, selector) {
+      if (selector.length && !selector.hasClass(visibleClass)) {
+        if (selector.isOnScreen() || isMobile) {
+          selector.addClass(visibleClass);
+        }
+      }
+    });
+
+  });
+})(jQuery);
+
 
 //Start animation circle in viewport
 $(document).on('load scroll resize ready', function () {
@@ -199,23 +266,5 @@ $(document).on('load scroll resize ready', function () {
       $(document).off('scroll resize ready');
     }
   }
-});
 
-$(function () {
-  if($('.customers').length) {
-    $('.js-review-full').on('click', function () {
-        $(this).parents('.customers__review').toggleClass('customers__review--show');
-        $(this).toggleClass('customers__btn--active');
-    });
-    $('.js-hide-review').on('click', function () {
-      $(this).parents('.customers__review').removeClass('customers__review--show');
-      $(this).removeClass('customers__btn--active');
-      var  posReview = $(this).parents('.customers__review');
-      console.log(posReview);
-      $('body,html').animate({
-        scrollTop: posReview.offset().top - 90
-      }, 800);
-      return false;
-    });
-  }
 });
