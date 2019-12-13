@@ -29,7 +29,7 @@
     "gulp-svgmin": "^1.2.2",
     "gulp-svgstore": "^6.0.0",
     "i": "^0.3.5",
-    "npm": "^4.1.1",
+    "npm": "^6.13.4",
     "run-sequence": "^1.2.2",
     "svgmin": "^0.1.0"
   },
