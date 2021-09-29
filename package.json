@@ -28,7 +28,7 @@
     "gulp-sass": "4.0.0",
     "gulp-svgmin": "^1.2.2",
     "gulp-svgstore": "^6.0.0",
-    "i": "^0.3.5",
+    "i": "^0.3.7",
     "npm": "^4.1.1",
     "run-sequence": "^1.2.2",
     "svgmin": "^0.1.0"
